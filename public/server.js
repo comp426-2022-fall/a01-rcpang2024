@@ -29,7 +29,7 @@
  										res.end(data)
  											})
  												server.listen(port, () => {
- 														console.log('Listening on port ${port}')
+ 														console.log('Server listening on port ${port}')
  															})
  															});
 
