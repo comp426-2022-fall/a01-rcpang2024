@@ -18,7 +18,7 @@ const port = process.env.PORT || args.port || 3000;
 // // The stuff that should be inside this function is all below.
 //
 fs.readFile('./public/index.html', 'utf8', (error, data) => {
- if (err) {
+ if (error) {
  		console.error(error);
  		return;
  }
