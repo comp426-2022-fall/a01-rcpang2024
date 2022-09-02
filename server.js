@@ -10,7 +10,7 @@ args["port"];
 //
 // // Define a const `port` using the argument from the command line. 
 // // Make this const default to port 3000 if there is no argument given for `--port`.
-const port = 3000 || process.env.PORT || args.port;
+const port = process.env.PORT || args.port || 3000;
 
 process.on('uncaughtException', error => {
  console.error('There was an uncaught error', error);
