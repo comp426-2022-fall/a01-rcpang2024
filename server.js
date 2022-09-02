@@ -11,6 +11,11 @@ args["port"];
 // // Define a const `port` using the argument from the command line. 
 // // Make this const default to port 3000 if there is no argument given for `--port`.
 const port = process.env.PORT || args.port || 3000;
+
+process.on('uncaughtException', error => {
+ console.error('There was an uncaught error', error);
+ process.exit(1);
+});
 //
 // // Use the fs module to create an arrow function using `fs.readFile`.
 // // Use the documentation for the Node.js `fs` module. 
@@ -28,7 +33,7 @@ fs.readFile('./public/index.html', 'utf8', (error, data) => {
  										     res.end(data)
  })
  server.listen(port, () => {
- 														console.log('Server listening on port ${port}')
+ 														console.log(`Server listening on port ${port}`)
  })
 });
 
