@@ -10,7 +10,7 @@ args["port"];
 //
 // // Define a const `port` using the argument from the command line. 
 // // Make this const default to port 3000 if there is no argument given for `--port`.
-const port = process.env.PORT || args.port || 3000;
+const port = 3000 || process.env.PORT || args.port;
 
 process.on('uncaughtException', error => {
  console.error('There was an uncaught error', error);
@@ -27,10 +27,10 @@ fs.readFile('./public/index.html', 'utf8', (error, data) => {
  		console.error(error);
  		return;
  }
- const server = http.createServer((req, res) => {
- 								       res.statusCode = 200;
- 									      res.setHeader('Content-Type', 'text/html')
- 										     res.end(data)
+ const server = http.createServer((req, result) => {
+ 								       result.statusCode = 200;
+ 									      result.setHeader('Content-Type', 'text/html')
+ 										     result.end(data)
  })
  server.listen(port, () => {
  														console.log(`Server listening on port ${port}`)
